@@ -21,3 +21,21 @@
   --color-text-secondary: var(--text-secondary);
   --color-text-contrast: var(--text-contrast);
 }
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 font-bold rounded-lg transition duration-300 py-3;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-text-contrast hover:bg-primary/95;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-text-contrast hover:bg-secondary/95;
+  }
+
+  .btn-outline {
+    @apply border border-text-secondary hover:bg-primary/20 hover:text-primary hover:border-primary;
+  }
+}
