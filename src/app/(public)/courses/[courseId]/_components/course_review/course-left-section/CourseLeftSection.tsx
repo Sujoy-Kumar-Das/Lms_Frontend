@@ -1,14 +1,19 @@
-import CourseReview from "./CourseReview";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import CourseInstructorInformation from "./CoureInstractorInformation";
 import CourseContent from "./CourseContent";
 import CourseDescription from "./CourseDescription";
 import CourseHeader from "./CourseHeader";
+import CourseReview from "./CourseReview";
 import CourseTopics from "./CourseTopics";
 
 const image =
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCBwRez42QTfH_Zyj46M1RkK4U57VVYSZlpQ&s";
 
-export default function CourseLeftSection({ courseDetails }) {
+export default function CourseLeftSection({
+  courseDetails,
+}: {
+  courseDetails: any;
+}) {
   return (
     <div className="lg:w-2/3">
       {/* course header  */}

@@ -1,5 +1,6 @@
 import CommonContainer from "@/_components/shared/container/CommonContainer";
 import CommonHeader from "@/_components/shared/header/CommonHeader";
+import { Suspense } from "react";
 import CourseSearch from "./CourseSearch";
 
 export default function CoursePageHeader() {
@@ -10,7 +11,9 @@ export default function CoursePageHeader() {
         subtitle="Discover a wide range of courses designed to help you achieve your learning goals and advance your career."
       />
 
-      <CourseSearch />
+      <Suspense>
+        <CourseSearch />
+      </Suspense>
     </CommonContainer>
   );
 }

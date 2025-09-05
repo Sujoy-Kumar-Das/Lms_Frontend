@@ -2,34 +2,35 @@
 "use client";
 import { useAuth } from "@/hooks/useAuth";
 import useRedirect from "@/hooks/useRedirect";
-import { useLoginMutation } from "@/lib/redux/api/auth/auth.api";
+import { useRegisterMutation } from "@/lib/redux/api/auth/auth.api";
 import { FieldValues } from "react-hook-form";
 import { toast } from "react-toastify";
 import AuthComponent from "../_components/AuthComponents";
 
-export default function LoginPage() {
-  const [login, { isLoading }] = useLoginMutation();
+export default function RegistrationPage() {
+  const [registerStudent, { isLoading }] = useRegisterMutation();
 
   const redirect = useRedirect();
   const { loginUser } = useAuth();
 
-  const handleLoginUser = async (data: FieldValues) => {
+  const handleCreateUser = async (data: FieldValues) => {
     try {
-      const res = await login(data).unwrap();
+      const res = await registerStudent(data).unwrap();
 
-      if (res.email) {
-        toast.success("User logged in successfully");
-        loginUser();
+      if (res._id) {
+        toast.success("Account created successfully");
+        await loginUser();
         redirect();
       }
     } catch (error: any) {
       toast.error(error.message);
     }
   };
+
   return (
     <AuthComponent
-      onSubmit={handleLoginUser}
-      type="login"
+      onSubmit={handleCreateUser}
+      type="register"
       loading={isLoading}
     />
   );

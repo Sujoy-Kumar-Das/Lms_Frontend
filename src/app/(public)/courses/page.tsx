@@ -1,9 +1,14 @@
 import CommonContainer from "@/_components/shared/container/CommonContainer";
 import CourseList from "@/_components/shared/container/CourseList";
 import Pagination from "@/_components/shared/pagination/Pagination";
+import { getAllCourse } from "@/service/actions/course.service";
+import { Suspense } from "react";
 import CoursePageHeader from "./_components/CoursePageHeader";
 
-export default function CoursesPage() {
+export default async function CoursesPage() {
+  const courses = await getAllCourse();
+
+  console.log(courses);
   return (
     <div>
       <CoursePageHeader />
@@ -22,7 +27,10 @@ export default function CoursesPage() {
           </div>
         </div>
 
-        <CourseList />
+        {/* todo use loader component as fallback */}
+        <Suspense>
+          <CourseList />
+        </Suspense>
 
         <Pagination />
       </CommonContainer>
