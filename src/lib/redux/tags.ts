@@ -3,6 +3,7 @@ export const tags = {
   user: "User",
   module: "Module",
   lecture: "Lecture",
+  enroll: "Enroll",
 } as const;
 
 export type TagKey = keyof typeof tags;

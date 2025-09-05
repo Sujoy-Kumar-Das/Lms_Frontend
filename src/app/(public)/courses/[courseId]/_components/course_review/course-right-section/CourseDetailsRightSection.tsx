@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import EnrollButton from "@/_components/enroll-button/EnrollButton";
 import Image from "next/image";
 import CourseFeatures from "./CourseFeatures";
 import CoursePricing from "./CoursePricing";
@@ -28,7 +29,9 @@ export default function CourseDetailsRightSection({
 
         {/* course action buttons */}
         <div className="mt-6 space-y-4">
-          <button className="w-full btn btn-primary">Enroll Now</button>
+          <EnrollButton id={courseDetails._id} className="w-full">
+            Enroll Now
+          </EnrollButton>
           <button className="w-full btn btn-outline">Add to Cart</button>
         </div>
 
