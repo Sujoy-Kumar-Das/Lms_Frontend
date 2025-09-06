@@ -11,7 +11,20 @@ const create = (data: FieldValues) => ({
   data,
 });
 
+const editCourse = ({ id, data }: { id: string; data: FieldValues }) => ({
+  url: `/course/${id}`,
+  method: "PATCH",
+  data,
+});
+
+const deleteCourse = (id: string) => ({
+  url: `/course/${id}`,
+  method: "DELETE",
+});
+
 export const courseMutation = {
   enroll,
   create,
+  deleteCourse,
+  editCourse,
 };

@@ -33,7 +33,7 @@
 
   .btn-primary {
     @apply bg-primary text-text-contrast hover:bg-primary/90
-           focus:ring-primary shadow-md;
+            shadow-md;
   }
 
   .btn-secondary {
@@ -43,8 +43,7 @@
 
   .btn-outline {
     @apply border border-text-secondary text-text-primary
-           hover:bg-primary/10 hover:border-primary hover:text-primary
-           focus:ring-primary;
+           hover:bg-primary/10 hover:border-primary hover:text-primary;
   }
 
   .btn-light {
@@ -53,6 +52,6 @@
   }
 
   .btn-danger {
-    @apply bg-red-500 text-white hover:bg-red-600 focus:ring-red-500 shadow-md;
+    @apply bg-red-500 text-white hover:bg-red-600  shadow-md;
   }
 }

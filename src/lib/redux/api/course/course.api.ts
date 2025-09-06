@@ -9,6 +9,14 @@ const courseApi = baseApi.injectEndpoints({
       query: courseMutation.create,
       invalidatesTags: [tags.course],
     }),
+    deleteCourse: builder.mutation({
+      query: courseMutation.deleteCourse,
+      invalidatesTags: [tags.course],
+    }),
+    editCourse: builder.mutation({
+      query: courseMutation.editCourse,
+      invalidatesTags: [tags.course],
+    }),
     enroll: builder.mutation({
       query: courseMutation.enroll,
       invalidatesTags: [tags.enroll],
@@ -25,6 +33,10 @@ const courseApi = baseApi.injectEndpoints({
       query: courseQuery.getAllCourse,
       providesTags: [tags.course],
     }),
+    getSingleCourse: builder.query({
+      query: courseQuery.getSingleCourse,
+      providesTags: [tags.course],
+    }),
   }),
 });
 
@@ -34,4 +46,7 @@ export const {
   useGetAllCourseQuery,
   useGetUserAllEnrolledCourseQuery,
   useGetEnrolledCourseQuery,
+  useEditCourseMutation,
+  useDeleteCourseMutation,
+  useGetSingleCourseQuery,
 } = courseApi;

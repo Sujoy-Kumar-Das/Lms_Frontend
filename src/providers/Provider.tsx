@@ -8,7 +8,7 @@ export default function Provider({ children }: { children: ReactNode }) {
   return (
     <ReduxProvider>
       <AuthContextProvider>
-        <ToastContainer position="top-center" style={{ zIndex: 10000 }} />
+        <ToastContainer position="top-center" style={{ zIndex: 20000 }} />
         {children}
       </AuthContextProvider>
     </ReduxProvider>

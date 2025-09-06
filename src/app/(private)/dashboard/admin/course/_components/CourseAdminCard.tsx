@@ -1,12 +1,11 @@
+import { ICourse } from "@/interface/course.interface";
 import Image from "next/image";
 import Link from "next/link";
+import DeleteCourseButton from "./DeleteCourseButton";
 
-export default function CourseAdminCard({ course }) {
+export default function CourseAdminCard({ course }: { course: ICourse }) {
   return (
-    <div
-      key={course.id}
-      className="bg-contrast rounded-2xl shadow-lg hover:shadow-xl transition-all overflow-hidden border border-secondary"
-    >
+    <div className="bg-contrast rounded-2xl shadow-lg hover:shadow-xl transition-all overflow-hidden border border-secondary">
       <div className="w-full h-48 overflow-hidden">
         <Image
           src={course.thumbnail}
@@ -40,10 +39,7 @@ export default function CourseAdminCard({ course }) {
             >
               Edit
             </Link>
-
-            <button className="px-3 py-1 text-sm rounded-lg btn btn-danger">
-              Delete
-            </button>
+            <DeleteCourseButton id={course._id} />
           </div>
         </div>
       </div>

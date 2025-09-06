@@ -13,8 +13,14 @@ const getAllCourse = () => ({
   method: "GET",
 });
 
+const getSingleCourse = (id: string) => ({
+  url: `/course/${id}`,
+  method: "GET",
+});
+
 export const courseQuery = {
   getUsersAllEnrolled,
   getEnrolledCourse,
   getAllCourse,
+  getSingleCourse,
 };
