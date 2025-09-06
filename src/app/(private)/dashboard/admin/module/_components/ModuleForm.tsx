@@ -1,69 +1,53 @@
+"use client";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-"use client";
 import Form from "@/_components/form/Form";
 import Input from "@/_components/form/Input";
-import InputFile from "@/_components/form/InputFile";
-import InputTextEditor from "@/_components/form/InputTextEditor";
+import SelectInput from "@/_components/form/SelectInput";
+import useGetCourseOptions from "@/hooks/useGetCourseOptions";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FieldValues } from "react-hook-form";
 import { FaSpinner } from "react-icons/fa";
-import { courseValidationSchema } from "./course.reslover";
+import moduleValidationSchema from "./module.validation.schema";
 
-interface CourseFormProps {
+interface ModuleFormProps {
   onSubmit: (data: FieldValues) => Promise<void>;
   defaultValues: Record<string, any>;
   loading: boolean;
   type: "create" | "edit";
 }
 
-export default function CourseForm({
+export default function ModuleForm({
   onSubmit,
   defaultValues,
   loading = false,
   type,
-}: CourseFormProps) {
-  const buttonText = type === "edit" ? "Update Course" : "Create Course";
+}: ModuleFormProps) {
+  const courseOptions = useGetCourseOptions();
+  const buttonText = type === "edit" ? "Update Module" : "Create Module";
   const loadingText = type === "edit" ? "Updating..." : "Creating...";
 
-  const validationSchema = courseValidationSchema[type];
+  const validationSchema = moduleValidationSchema[type];
 
   return (
-    <div className="bg-background rounded-2xl shadow-lg p-6 md:p-8 border border-none">
+    <div className=" max-w-xl mx-auto bg-background rounded-2xl shadow-lg p-6 md:p-8 border border-none">
       <Form
         onSubmit={onSubmit}
         defaultValues={defaultValues}
         resolver={zodResolver(validationSchema)}
       >
-        <div className=" grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className=" flex-col justify-center gap-6">
           <Input
             name="title"
             type="text"
             label="Title"
             placeholder="Enter Course Title"
           />
-          <Input
-            name="shortDescription"
-            type="text"
-            label="Short Description"
-            placeholder="Enter Course Short Description"
-          />
-        </div>
-        <div className=" grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Input
-            name="price"
-            type="number"
-            label="Price"
-            placeholder="Enter Course Price"
-          />
-          <InputFile name="thumbnail" label="Thumbnail" />
-        </div>
-
-        <div className=" grid grid-cols-1 gap-6">
-          <InputTextEditor
-            name="description"
-            label="Description"
-            placeholder="Enter Course Description"
+          <SelectInput
+            name="course"
+            options={courseOptions}
+            label="Select a course"
+            placeholder="Select a course"
           />
         </div>
 
