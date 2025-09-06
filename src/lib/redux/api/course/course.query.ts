@@ -8,7 +8,13 @@ const getEnrolledCourse = (enrollId: string) => ({
   method: "GET",
 });
 
+const getAllCourse = () => ({
+  url: `/course/`,
+  method: "GET",
+});
+
 export const courseQuery = {
   getUsersAllEnrolled,
   getEnrolledCourse,
+  getAllCourse,
 };

@@ -1,4 +1,5 @@
 import Logo from "@/_components/shared/logo/Logo";
+import { IUserRoles } from "@/interface/user.roles.interface";
 import dashboardRoutes from "@/routes/dashboard.routes";
 import routeGenerator from "@/utils/route.generator";
 import Link from "next/link";
@@ -10,14 +11,14 @@ export default function DashboardSidebar({
   isSidebarOpen: boolean;
   role?: string;
 }) {
-  const routes = routeGenerator(dashboardRoutes, role);
+  const routes = routeGenerator(dashboardRoutes, role as IUserRoles);
 
   return (
     <aside
-      className={`bg-background min-h-screen w-64 p-5 text-text-primary
-         fixed top-0 left-0 h-full overflow-y-auto transition-transform z-50
+      className={` bg-background min-h-screen w-64 p-5 text-text-primary
+         sticky top-0 left-0 h-full overflow-y-auto transition-transform z-50
          ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"}
-         md:translate-x-0 md:static`}
+         md:translate-x-0`}
     >
       <div className="pb-4 border-b border-text-secondary">
         <Logo />

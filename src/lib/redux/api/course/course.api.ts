@@ -5,6 +5,10 @@ import { courseQuery } from "./course.query";
 
 const courseApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
+    createCourse: builder.mutation({
+      query: courseMutation.create,
+      invalidatesTags: [tags.course],
+    }),
     enroll: builder.mutation({
       query: courseMutation.enroll,
       invalidatesTags: [tags.enroll],
@@ -17,11 +21,17 @@ const courseApi = baseApi.injectEndpoints({
       query: courseQuery.getEnrolledCourse,
       providesTags: [tags.enroll],
     }),
+    getAllCourse: builder.query({
+      query: courseQuery.getAllCourse,
+      providesTags: [tags.course],
+    }),
   }),
 });
 
 export const {
+  useCreateCourseMutation,
   useEnrollMutation,
+  useGetAllCourseQuery,
   useGetUserAllEnrolledCourseQuery,
   useGetEnrolledCourseQuery,
 } = courseApi;
