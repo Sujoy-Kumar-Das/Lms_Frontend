@@ -32,7 +32,7 @@ export default function LectureFieldsList() {
                 <div>
                   <p className="font-medium">{lecture.title}</p>
                   <p className="text-sm text-text-secondary">
-                    Module: {lecture.module?.split("::")[0]}
+                    Module: {lecture.module?.title}
                   </p>
                 </div>
                 <button

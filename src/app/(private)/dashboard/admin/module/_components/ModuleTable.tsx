@@ -3,11 +3,11 @@ import { useGetAllModulesQuery } from "@/lib/redux/api/module/module.api";
 import Link from "next/link";
 import { FiEdit } from "react-icons/fi";
 import ModuleDeleteButton from "./ModuleDeleteButton";
+import { IModuleData } from "@/interface/module.interface";
 
 export default function ModuleTable() {
   const { data, isLoading } = useGetAllModulesQuery(undefined);
 
-  console.log({ data });
   return (
     <div className="overflow-x-auto bg-background rounded-xl shadow-md">
       <table className="min-w-full text-left border-collapse">
@@ -25,7 +25,7 @@ export default function ModuleTable() {
           </tr>
         </thead>
         <tbody>
-          {data?.map((module) => (
+          {data?.map((module: IModuleData) => (
             <tr key={module._id}>
               <td className="px-6 py-4">{module.title}</td>
               <td className="px-6 py-4">{module.course.title}</td>

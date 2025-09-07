@@ -1,5 +1,6 @@
 "use client";
 import SelectInput from "@/_components/form/SelectInput";
+import { IModuleData } from "@/interface/module.interface";
 import { useGetModuleByCourseQuery } from "@/lib/redux/api/module/module.api";
 import { useFormContext } from "react-hook-form";
 
@@ -14,7 +15,7 @@ export default function SelectModuleByCourse() {
   // because need to show in the UI module name
   // extract module _id from module value ::
 
-  const moduleOptions = data?.map((module) => ({
+  const moduleOptions = data?.map((module: IModuleData) => ({
     label: module.title,
     value: `${module.title}::${module._id}`,
   }));

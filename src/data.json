@@ -1,0 +1,212 @@
+[
+  {
+    "courseTitle": "Web Development Bootcamp",
+    "modules": [
+      {
+        "title": "HTML & CSS Basics",
+        "lectures": [
+          {
+            "title": "Introduction to HTML",
+            "videoUrl": "https://www.youtube.com/watch?v=pQN-pnXPaVg"
+          },
+          {
+            "title": "CSS Fundamentals",
+            "videoUrl": "https://www.youtube.com/watch?v=yfoY53QXEnI"
+          }
+        ]
+      },
+      {
+        "title": "JavaScript Fundamentals",
+        "lectures": [
+          {
+            "title": "JavaScript Basics",
+            "videoUrl": "https://www.youtube.com/watch?v=W6NZfCO5SIk"
+          },
+          {
+            "title": "DOM Manipulation",
+            "videoUrl": "https://www.youtube.com/watch?v=0ik6X4DJKCc"
+          }
+        ]
+      },
+      {
+        "title": "React for Frontend",
+        "lectures": [
+          {
+            "title": "React Components & Props",
+            "videoUrl": "https://www.youtube.com/watch?v=Ke90Tje7VS0"
+          },
+          {
+            "title": "React State & Hooks",
+            "videoUrl": "https://www.youtube.com/watch?v=dpw9EHDh2bM"
+          }
+        ]
+      },
+      {
+        "title": "Node.js & Express",
+        "lectures": [
+          {
+            "title": "Node.js Introduction",
+            "videoUrl": "https://www.youtube.com/watch?v=TlB_eWDSMt4"
+          },
+          {
+            "title": "Express Basics",
+            "videoUrl": "https://www.youtube.com/watch?v=L72fhGm1tfE"
+          }
+        ]
+      },
+      {
+        "title": "Database & Deployment",
+        "lectures": [
+          {
+            "title": "MongoDB Basics",
+            "videoUrl": "https://www.youtube.com/watch?v=-56x56UppqQ"
+          },
+          {
+            "title": "Deploying Applications",
+            "videoUrl": "https://www.youtube.com/watch?v=71wSzpLyW9k"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "courseTitle": "Data Science with Python",
+    "modules": [
+      {
+        "title": "Python Basics",
+        "lectures": [
+          {
+            "title": "Python Introduction",
+            "videoUrl": "https://www.youtube.com/watch?v=_uQrJ0TkZlc"
+          },
+          {
+            "title": "Python Variables & Data Types",
+            "videoUrl": "https://www.youtube.com/watch?v=khKv-8q7YmY"
+          }
+        ]
+      },
+      {
+        "title": "Data Manipulation with Pandas",
+        "lectures": [
+          {
+            "title": "Pandas DataFrames",
+            "videoUrl": "https://www.youtube.com/watch?v=vmEHCJofslg"
+          },
+          {
+            "title": "Data Cleaning with Pandas",
+            "videoUrl": "https://www.youtube.com/watch?v=OTL2fHhjQ8E"
+          }
+        ]
+      },
+      {
+        "title": "Data Visualization",
+        "lectures": [
+          {
+            "title": "Matplotlib Basics",
+            "videoUrl": "https://www.youtube.com/watch?v=DAQNHzOcO5A"
+          },
+          {
+            "title": "Seaborn for Data Visualization",
+            "videoUrl": "https://www.youtube.com/watch?v=GcXcSZ0gQps"
+          }
+        ]
+      },
+      {
+        "title": "Machine Learning",
+        "lectures": [
+          {
+            "title": "Linear Regression",
+            "videoUrl": "https://www.youtube.com/watch?v=J_LnPL3Qg70"
+          },
+          {
+            "title": "Classification Algorithms",
+            "videoUrl": "https://www.youtube.com/watch?v=85dtiMz9tSo"
+          }
+        ]
+      },
+      {
+        "title": "Projects & Case Studies",
+        "lectures": [
+          {
+            "title": "Customer Segmentation Project",
+            "videoUrl": "https://www.youtube.com/watch?v=5cZ7kxO4zQ8"
+          },
+          {
+            "title": "Predictive Modeling Project",
+            "videoUrl": "https://www.youtube.com/watch?v=9yl6-HEY7_s"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "courseTitle": "Digital Marketing Mastery",
+    "modules": [
+      {
+        "title": "Marketing Fundamentals",
+        "lectures": [
+          {
+            "title": "Introduction to Marketing",
+            "videoUrl": "https://www.youtube.com/watch?v=YpndYZR4dV0"
+          },
+          {
+            "title": "Branding Basics",
+            "videoUrl": "https://www.youtube.com/watch?v=0j6cH6Zuvl0"
+          }
+        ]
+      },
+      {
+        "title": "SEO Techniques",
+        "lectures": [
+          {
+            "title": "SEO Basics",
+            "videoUrl": "https://www.youtube.com/watch?v=hF515-0Tduk"
+          },
+          {
+            "title": "On-Page & Off-Page SEO",
+            "videoUrl": "https://www.youtube.com/watch?v=gmB_TC92I8w"
+          }
+        ]
+      },
+      {
+        "title": "Social Media Marketing",
+        "lectures": [
+          {
+            "title": "Social Media Strategy",
+            "videoUrl": "https://www.youtube.com/watch?v=Q9KvyPjYpxs"
+          },
+          {
+            "title": "Content Creation for Social Media",
+            "videoUrl": "https://www.youtube.com/watch?v=6bdlTn2xzW4"
+          }
+        ]
+      },
+      {
+        "title": "Content & Email Marketing",
+        "lectures": [
+          {
+            "title": "Content Marketing Strategies",
+            "videoUrl": "https://www.youtube.com/watch?v=4s1lX4VhnLc"
+          },
+          {
+            "title": "Email Marketing Campaigns",
+            "videoUrl": "https://www.youtube.com/watch?v=k3n5z4iw6hU"
+          }
+        ]
+      },
+      {
+        "title": "Analytics & Campaigns",
+        "lectures": [
+          {
+            "title": "Google Analytics Basics",
+            "videoUrl": "https://www.youtube.com/watch?v=1ZMQc5rdG5E"
+          },
+          {
+            "title": "Optimizing Marketing Campaigns",
+            "videoUrl": "https://www.youtube.com/watch?v=RgGQXSk5jO4"
+          }
+        ]
+      }
+    ]
+  }
+]

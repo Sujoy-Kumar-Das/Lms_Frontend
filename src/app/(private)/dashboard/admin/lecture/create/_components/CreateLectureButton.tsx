@@ -3,51 +3,34 @@
 
 import useLectureContext from "@/hooks/useLectureContext";
 import { useCreateLecturesMutation } from "@/lib/redux/api/lecture/lecture.api";
-import { uploadFileToCloudinary } from "@/service/actions/cloudinary.service";
 import { FaSpinner } from "react-icons/fa";
 import { toast } from "react-toastify";
 
 export default function CreateLectureButton() {
   const { lectures, clearLecture } = useLectureContext();
-  const [createLecture, apiResponse] = useCreateLecturesMutation();
+  const [createLecture, { isLoading }] = useCreateLecturesMutation();
+
+  console.log({ lectures });
 
   // post the lectures from local state to server
   const handlePublishLecture = async () => {
     try {
-      // start loader
-      apiResponse.isLoading = true;
-
       if (!lectures.length) {
         toast.error("No data for create lecture.");
-      }
-
-      // host pdf files in cloudinary
-      for (const lecture of lectures) {
-        const pdfFiles = lecture.notes;
-
-        if (pdfFiles.length) {
-          const urls = await Promise.all(
-            pdfFiles.map((pdf) => uploadFileToCloudinary(pdf, "pdf"))
-          );
-
-          lecture.notesUrl = urls;
-        } else {
-          lecture.notesUrl = [];
-        }
       }
 
       // prepare data for backend api call
       const lecturesData = lectures.map((lecture) => ({
         title: lecture.title,
         video: lecture.video,
-        module: lecture.module.split("::")[1],
-        notes: lecture.notesUrl ?? [],
+        module: lecture.module._id,
+        notes: lecture.notes ?? [],
       }));
 
       // call the api
       const res = await createLecture({ lecture: lecturesData }).unwrap();
 
-      if (res._id) {
+      if (res.length) {
         toast.success("Lecturer created successfully");
         clearLecture();
       }
@@ -56,15 +39,14 @@ export default function CreateLectureButton() {
     }
   };
 
-  const loading = apiResponse.isLoading;
   return (
     <button
       type="button"
       onClick={handlePublishLecture}
-      disabled={loading}
+      disabled={isLoading}
       className="flex items-center justify-center gap-2 btn btn-primary"
     >
-      {loading ? (
+      {isLoading ? (
         <>
           <FaSpinner className="animate-spin" /> Creating...
         </>

@@ -2,7 +2,7 @@ import { ILectureDraftData } from "@/interface/lecture.interface";
 import { createContext } from "react";
 
 interface ILectureContextProps {
-  onAddLecture: (data: ILectureDraftData) => Promise<{ message: string }>;
+  onAddLecture: (data: ILectureDraftData) => Promise<void>;
   onRemoveLecture: (id: string) => void;
   clearLecture: () => void;
   lectures: ILectureDraftData[];

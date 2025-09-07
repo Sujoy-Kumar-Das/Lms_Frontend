@@ -1,8 +1,12 @@
+import { IEnrollCourse } from "@/interface/enroll_course.interface";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function EnrolledCourseCard({ course }) {
-  console.log({ course });
+export default function EnrolledCourseCard({
+  course,
+}: {
+  course: IEnrollCourse;
+}) {
   return (
     <div className="bg-background rounded-xl overflow-hidden shadow-md hover:shadow-lg transition duration-300 card-hover">
       <Image

@@ -7,6 +7,7 @@ import CommonHeader from "@/_components/shared/header/CommonHeader";
 import useLectureContext from "@/hooks/useLectureContext";
 import { ILectureDraftData } from "@/interface/lecture.interface";
 import { createLectureSchema } from "@/schemas/lecture.schema";
+import { uploadFileToCloudinary } from "@/service/actions/cloudinary.service";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FieldValues } from "react-hook-form";
 import { toast } from "react-toastify";
@@ -23,16 +24,41 @@ const defaultValues = {
 };
 
 export default function CreateLectureForm() {
-  const { onAddLecture } = useLectureContext();
+  const { onAddLecture, lectures } = useLectureContext();
 
   const handleAddLecture = async (data: FieldValues) => {
     try {
-      const res = await onAddLecture(data as ILectureDraftData);
+      const isExitsTitle = lectures.find(
+        (lecture) =>
+          lecture?.title?.toLowerCase() === data?.title?.toLowerCase()
+      );
 
-      if (res.message) {
-        toast.success(res.message);
+      if (isExitsTitle) {
+        toast.info("A lecture already exists in your module with this title");
       }
+
+      // upload image to cloudinary
+      if (data.notes && data.notes.length > 0) {
+        const urls = await Promise.all(
+          data.notes.map((pdf: File) => uploadFileToCloudinary(pdf, "pdf"))
+        );
+        data.notes = urls;
+      } else {
+        data.notes = [];
+      }
+
+      const splitModule = data.module.split("::");
+
+      data.module = {
+        title: splitModule[0],
+        _id: splitModule[1],
+      };
+
+      toast.success("Lecture added to draft");
+
+      onAddLecture(data as ILectureDraftData);
     } catch (error: any) {
+      console.log({ error });
       toast.error(error.message);
     }
   };

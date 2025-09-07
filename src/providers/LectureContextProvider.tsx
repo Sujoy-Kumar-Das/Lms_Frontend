@@ -15,23 +15,7 @@ export default function LectureContextProvider({
   );
 
   const handleAddLecture = async (data: ILectureDraftData) => {
-    if (!lectures.length) {
-      setLectures([data]);
-      return { message: "Lecture added successfully" };
-    }
-
-    const isExitsTitle = lectures.find(
-      (lecture) => lecture?.title?.toLowerCase() === data?.title?.toLowerCase()
-    );
-
-    if (isExitsTitle) {
-      throw new Error(
-        "A lecture already exists in your module with this title"
-      );
-    }
-
     setLectures((prev) => [...prev, data]);
-    return { message: "Lecture added successfully" };
   };
 
   const handleRemoveLecture = (title: string) => {
