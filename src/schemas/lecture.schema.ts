@@ -26,3 +26,22 @@ export const createLectureSchema = z.object({
     })
     .min(5, { error: "Module is required." }),
 });
+
+export const editLectureSchema = z.object({
+  title: z
+    .string({
+      error: "Title is required",
+    })
+    .min(10, "Title must be at least 10 characters long")
+    .max(100, "Title must be at most 100 characters long"),
+
+  video: z.url({
+    error: "Video URL is required",
+  }),
+
+  module: z
+    .string({
+      error: "Module is required",
+    })
+    .min(5, { error: "Module is required." }),
+});

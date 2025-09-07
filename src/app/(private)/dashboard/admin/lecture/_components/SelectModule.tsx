@@ -4,7 +4,11 @@ import { IModuleData } from "@/interface/module.interface";
 import { useGetModuleByCourseQuery } from "@/lib/redux/api/module/module.api";
 import { useFormContext } from "react-hook-form";
 
-export default function SelectModuleByCourse() {
+export default function SelectModuleByCourse({
+  type = "create",
+}: {
+  type?: "create" | "edit";
+}) {
   const { watch } = useFormContext();
   const selectedCourseId = watch("course");
 
@@ -14,10 +18,13 @@ export default function SelectModuleByCourse() {
   // note module id and module title are stored as value of module options
   // because need to show in the UI module name
   // extract module _id from module value ::
+  // make the value id + title for create lecture
 
   const moduleOptions = data?.map((module: IModuleData) => ({
     label: module.title,
-    value: `${module.title}::${module._id}`,
+    value: `${
+      type === "create" ? `${module.title}::${module._id}` : module._id
+    }`,
   }));
 
   const placeholder = isLoading

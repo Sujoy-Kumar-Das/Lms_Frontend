@@ -10,8 +10,6 @@ export default function CreateLectureButton() {
   const { lectures, clearLecture } = useLectureContext();
   const [createLecture, { isLoading }] = useCreateLecturesMutation();
 
-  console.log({ lectures });
-
   // post the lectures from local state to server
   const handlePublishLecture = async () => {
     try {
