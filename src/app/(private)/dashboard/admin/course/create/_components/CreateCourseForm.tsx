@@ -2,7 +2,7 @@
 "use client";
 
 import { useCreateCourseMutation } from "@/lib/redux/api/course/course.api";
-import { uploadImageToCloudinary } from "@/service/actions/upload_image.service";
+import { uploadFileToCloudinary } from "@/service/actions/cloudinary.service";
 import { FieldValues } from "react-hook-form";
 import { toast } from "react-toastify";
 import CourseForm from "../../_components/CourseForm";
@@ -24,7 +24,7 @@ export default function CreateCourseForm() {
       apiResponse.isLoading = true;
 
       // upload image to cloudinary
-      const imageURL = await uploadImageToCloudinary(data.thumbnail);
+      const imageURL = await uploadFileToCloudinary(data.thumbnail, "image");
 
       //   set the upload url
       data.thumbnail = imageURL;

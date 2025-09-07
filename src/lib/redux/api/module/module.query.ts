@@ -8,7 +8,13 @@ const getSingle = (id: string) => ({
   method: "GET",
 });
 
+const getByCourse = (id: string) => ({
+  url: `/module/course/${id}`,
+  method: "GET",
+});
+
 export const moduleQuery = {
   getAll,
   getSingle,
+  getByCourse,
 };

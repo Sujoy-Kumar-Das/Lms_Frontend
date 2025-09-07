@@ -5,7 +5,7 @@ import {
   useEditCourseMutation,
   useGetSingleCourseQuery,
 } from "@/lib/redux/api/course/course.api";
-import { uploadImageToCloudinary } from "@/service/actions/upload_image.service";
+import { uploadFileToCloudinary } from "@/service/actions/cloudinary.service";
 import { FieldValues } from "react-hook-form";
 import { toast } from "react-toastify";
 import CourseForm from "../../../_components/CourseForm";
@@ -38,7 +38,7 @@ export default function EditCourseForm({ id }: { id: string }) {
 
       if (data.thumbnail) {
         // upload image to cloudinary
-        data.thumbnail = await uploadImageToCloudinary(data.thumbnail);
+        data.thumbnail = await uploadFileToCloudinary(data.thumbnail, "image");
       }
 
       //   create course api call;

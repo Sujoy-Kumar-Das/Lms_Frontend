@@ -33,12 +33,8 @@ const Form = ({ children, onSubmit, resolver, defaultValues }: TFormProps) => {
   const { handleSubmit, reset } = methods;
 
   const submit: SubmitHandler<FieldValues> = async (data) => {
-    try {
-      await onSubmit(data);
-      reset();
-    } catch {
-      return;
-    }
+    await onSubmit(data);
+    reset();
   };
 
   return (

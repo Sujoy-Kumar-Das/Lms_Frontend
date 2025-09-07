@@ -15,11 +15,12 @@ export default function DashboardSidebar({
 
   return (
     <aside
-      className={` bg-background min-h-screen w-64 p-5 text-text-primary
-         sticky top-0 left-0 h-full overflow-y-auto transition-transform z-50
-         ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"}
-         md:translate-x-0`}
+      className={`bg-background min-h-screen w-64 p-5 text-text-primary
+        fixed top-0 left-0 h-full overflow-y-auto transition-transform z-50
+        ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"}
+        md:sticky md:translate-x-0 md:block`}
     >
+      {/* Logo  */}
       <div className="pb-4 border-b border-text-secondary">
         <Logo />
         <p className="text-text-secondary text-sm mt-2 capitalize">
@@ -27,12 +28,15 @@ export default function DashboardSidebar({
         </p>
       </div>
 
-      <nav className="mt-6 flex-1">
+      {/* Navigation */}
+      <nav className="mt-6 flex flex-col gap-1">
         {routes.map((route) => (
           <Link
             key={route.text}
             href={route.link}
-            className="flex items-center gap-3 px-6 py-3 border-l-4 border-transparent text-text-secondary hover:bg-primary/10 hover:border-primary hover:text-primary transition-all duration-200 rounded-l-lg"
+            className="flex items-center gap-3 px-6 py-3 border-l-4 border-transparent text-text-secondary
+              hover:bg-primary/10 hover:border-primary hover:text-primary
+              transition-all duration-200 rounded-l-lg"
           >
             <span className="text-xl">{route.icon}</span>
             <span className="text-base font-medium">{route.text}</span>

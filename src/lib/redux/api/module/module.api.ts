@@ -13,6 +13,10 @@ const courseApi = baseApi.injectEndpoints({
       query: moduleQuery.getSingle,
       providesTags: [tags.module],
     }),
+    getModuleByCourse: builder.query({
+      query: moduleQuery.getByCourse,
+      providesTags: [tags.module],
+    }),
     createModule: builder.mutation({
       query: moduleMutation.create,
       invalidatesTags: [tags.module],
@@ -34,4 +38,5 @@ export const {
   useGetSingleModuleQuery,
   useEditModuleMutation,
   useDeleteModuleMutation,
+  useGetModuleByCourseQuery,
 } = courseApi;

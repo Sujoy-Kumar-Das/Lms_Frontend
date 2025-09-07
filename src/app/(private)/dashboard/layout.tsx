@@ -13,27 +13,30 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
   const toggleSidebar = () => setIsSidebarOpen((prev) => !prev);
 
   return (
-    <div className="flex min-h-screen bg-contrast">
+    <div className="flex md:flex-row flex-col min-h-screen bg-contrast">
+      {/* Sidebar */}
       <DashboardSidebar isSidebarOpen={isSidebarOpen} role={user?.role} />
 
+      {/* Mobile overlay */}
       {isSidebarOpen && (
         <div
-          className="fixed inset-0 bg-contrast/40 z-40 md:hidden"
+          className="fixed inset-0 bg-black/40 z-40 md:hidden"
           onClick={toggleSidebar}
         />
       )}
 
-      {/* Main content */}
       <div className="flex-1 flex flex-col">
-        {/* navbar for mobile */}
-        <header className="h-16 flex justify-between items-center px-4 shadow-md md:hidden">
+        {/* Mobile navbar */}
+        <header className="h-16 flex justify-between items-center px-4 shadow-md bg-background md:hidden sticky top-0 z-[10001]">
           <Logo />
-          <button onClick={toggleSidebar} className=" btn text-text-primary">
-            {isSidebarOpen ? <RxCross2 /> : <FiMenu />}
+          <button
+            onClick={toggleSidebar}
+            className="p-2 rounded-md text-text-primary hover:bg-primary/10 transition"
+          >
+            {isSidebarOpen ? <RxCross2 size={22} /> : <FiMenu size={22} />}
           </button>
         </header>
 
-        {/* Page content */}
         <main className="flex-1">{children}</main>
       </div>
     </div>
