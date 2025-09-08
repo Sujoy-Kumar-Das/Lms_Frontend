@@ -27,7 +27,7 @@ export default function CourseAdminCard({ course }: { course: ICourse }) {
 
         <div className="flex justify-between items-center pt-3 border-t border-background">
           <Link
-            href={`/dashboard/admin/course/detail/${course._id}`}
+            href={`/dashboard/admin/course/${course._id}`}
             className="px-3 py-1 text-sm rounded-lg btn btn-light "
           >
             Details

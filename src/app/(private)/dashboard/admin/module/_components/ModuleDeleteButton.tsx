@@ -1,11 +1,21 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { useDeleteModuleMutation } from "@/lib/redux/api/module/module.api";
-import { FiTrash2 } from "react-icons/fi";
+import { ReactNode } from "react";
+import { FaSpinner, FaTrash } from "react-icons/fa";
 import { toast } from "react-toastify";
+import { twMerge } from "tailwind-merge";
 
-export default function ModuleDeleteButton({ id }: { id: string }) {
-  const [deleteModule, {}] = useDeleteModuleMutation();
+export default function ModuleDeleteButton({
+  id,
+  className,
+  children,
+}: {
+  id: string;
+  className?: string;
+  children?: ReactNode;
+}) {
+  const [deleteModule, { isLoading }] = useDeleteModuleMutation();
 
   const handleDeleteModule = async () => {
     try {
@@ -21,9 +31,19 @@ export default function ModuleDeleteButton({ id }: { id: string }) {
   return (
     <button
       onClick={handleDeleteModule}
-      className="text-red-500 hover:text-red-700"
+      type="button"
+      className={twMerge("btn btn-danger", className)}
+      disabled={isLoading}
     >
-      <FiTrash2 size={18} />
+      {isLoading ? (
+        <span className="flex items-center text-contrast">
+          <FaSpinner className=" animate-spin mr-2" /> Deleting...
+        </span>
+      ) : children ? (
+        children
+      ) : (
+        <FaTrash />
+      )}
     </button>
   );
 }

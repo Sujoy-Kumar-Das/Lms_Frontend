@@ -1,11 +1,20 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { useDeleteLecturesMutation } from "@/lib/redux/api/lecture/lecture.api";
-import { FaSpinner } from "react-icons/fa";
-import { FiTrash } from "react-icons/fi";
+import { ReactNode } from "react";
+import { FaSpinner, FaTrash } from "react-icons/fa";
 import { toast } from "react-toastify";
+import { twMerge } from "tailwind-merge";
 
-export default function LectureDeleteButton({ id }: { id: string }) {
+export default function LectureDeleteButton({
+  id,
+  className,
+  children,
+}: {
+  id: string;
+  className?: string;
+  children?: ReactNode;
+}) {
   const [remove, { isLoading }] = useDeleteLecturesMutation();
 
   const handleDeleteLecture = async () => {
@@ -22,13 +31,18 @@ export default function LectureDeleteButton({ id }: { id: string }) {
   return (
     <button
       onClick={handleDeleteLecture}
+      type="button"
+      className={twMerge("btn btn-danger", className)}
       disabled={isLoading}
-      className=" text-red-500"
     >
       {isLoading ? (
-        <FaSpinner size={18} className="animate-spin" />
+        <span className="flex items-center text-contrast">
+          <FaSpinner className=" animate-spin mr-2" /> Deleting...
+        </span>
+      ) : children ? (
+        children
       ) : (
-        <FiTrash size={18} />
+        <FaTrash />
       )}
     </button>
   );

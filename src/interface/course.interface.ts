@@ -1,3 +1,6 @@
+import { ILectureData } from "./lecture.interface";
+import { IModuleData } from "./module.interface";
+
 export interface ICourse {
   _id: string;
   title: string;
@@ -8,4 +11,10 @@ export interface ICourse {
   createdAt: string;
   updatedAt: string;
   status: string;
+}
+
+export interface ICourseDetails extends ICourse {
+  modules: (IModuleData & {
+    lectures: ILectureData[];
+  })[];
 }
