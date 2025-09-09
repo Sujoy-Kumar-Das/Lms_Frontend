@@ -1,11 +1,11 @@
 "use client";
 import { IEnrollCourse } from "@/interface/enroll_course.interface";
-import { useGetUserAllEnrolledCourseQuery } from "@/lib/redux/api/course/course.api";
+import { useGetAllEnrolledCourseByStudentQuery } from "@/lib/redux/api/enroll/enroll.api";
 import EnrolledCourseCard from "./EnrolledCourseCard";
 
 export default function UserEnrolledCoursesList() {
   const { data, isLoading, error } =
-    useGetUserAllEnrolledCourseQuery(undefined);
+    useGetAllEnrolledCourseByStudentQuery(undefined);
 
   return (
     <div className=" grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 p-6 gap-6">

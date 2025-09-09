@@ -6,7 +6,7 @@ export default async function EnrolledCourseDetailsPage({
 }: {
   params: { id: string };
 }) {
-  const id = await params.id;
+  const id = await params;
 
   return (
     <div>
@@ -14,7 +14,7 @@ export default async function EnrolledCourseDetailsPage({
         title="Enrolled Course Details"
         subtitle="Track your progress, lectures, and course resources"
       />
-      <EnrolledCourseCompo id={id} />
+      <EnrolledCourseCompo id={id.id} />
     </div>
   );
 }

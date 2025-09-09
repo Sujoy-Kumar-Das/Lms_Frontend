@@ -20,7 +20,7 @@ export default function LoginCompo() {
 
       if (res.email) {
         toast.success("User logged in successfully");
-        loginUser();
+        await loginUser();
         redirect();
       }
     } catch (error: any) {

@@ -3,6 +3,7 @@ import AuthContext from "@/context/AuthContext";
 import { IUser } from "@/interface/user.interface";
 import { useGetMeQuery } from "@/lib/redux/api/user/user.api";
 import { logoutUserFunc } from "@/utils/logoutUser";
+import { useRouter } from "next/navigation";
 import { ReactNode, useEffect, useState } from "react";
 
 export default function AuthContextProvider({
@@ -13,6 +14,8 @@ export default function AuthContextProvider({
   const { data, refetch, isLoading } = useGetMeQuery(undefined);
 
   const [user, setUser] = useState<IUser | null>(null);
+
+  const router = useRouter();
 
   const modifyUserData = (data: any): IUser => ({
     _id: data._id,
@@ -40,7 +43,8 @@ export default function AuthContextProvider({
 
   const logoutUser = async (redirectPath = "/login") => {
     setUser(null);
-    await logoutUserFunc(redirectPath);
+    await logoutUserFunc();
+    router.push(redirectPath);
   };
 
   return (

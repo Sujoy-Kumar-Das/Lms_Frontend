@@ -1,3 +1,4 @@
+import DangerouslySetInnerHTML from "@/_components/shared/DangerouslySetInnerHTML/DangerouslySetInnerHTML";
 import { ICourse } from "@/interface/course.interface";
 import Image from "next/image";
 import Link from "next/link";
@@ -34,10 +35,7 @@ export default function AdminCourseDetails({ course }: { course: ICourse }) {
         </div>
         <p className=" text-text-secondary mt-2">{course?.shortDescription}</p>
 
-        <div
-          className="prose prose-indigo max-w-none mt-4  text-text-secondary"
-          dangerouslySetInnerHTML={{ __html: course?.description }}
-        />
+        <DangerouslySetInnerHTML text={course.description} />
 
         <div className="mt-6 flex items-center justify-between">
           <span className="text-2xl font-bold text-primary ">

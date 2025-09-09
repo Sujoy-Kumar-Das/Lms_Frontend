@@ -29,10 +29,7 @@ axiosInstance.interceptors.response.use(
   async function (error) {
     const config = error.config;
 
-    const isInvalidAccessToken =
-      error?.response?.status === 401 ||
-      error?.response?.status === 403 ||
-      error?.response?.status === 500;
+    const isInvalidAccessToken = error?.response?.status === 500;
 
     if (isInvalidAccessToken && !config._retry) {
       config._retry = true;

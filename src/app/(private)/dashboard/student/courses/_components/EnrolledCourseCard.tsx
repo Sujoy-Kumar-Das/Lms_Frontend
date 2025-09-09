@@ -23,7 +23,7 @@ export default function EnrolledCourseCard({
         <div className="mt-3 flex items-center justify-end">
           <Link
             className="btn btn-primary py-1 px-2 text-sm font-normal"
-            href={`/dashboard/user/enroll/${course?._id}`}
+            href={`/dashboard/student/enroll/${course?._id}`}
           >
             Continue Course
           </Link>

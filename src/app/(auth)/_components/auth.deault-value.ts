@@ -38,7 +38,7 @@ const defaultFields = {
 const defaultValues = {
   login: {
     email: "suju@gmail.com",
-    password: "Suju@4321",
+    password: "Suju4321@",
   },
   register: {
     name: "",

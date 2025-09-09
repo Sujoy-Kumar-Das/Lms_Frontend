@@ -1,6 +1,4 @@
-import { redirect } from "next/navigation";
-
-export const logoutUserFunc = async (redirectPath: string = "/") => {
+export const logoutUserFunc = async () => {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/auth/logout`,
     {
@@ -12,6 +10,4 @@ export const logoutUserFunc = async (redirectPath: string = "/") => {
   if (!res.ok) {
     return;
   }
-
-  redirect(redirectPath);
 };

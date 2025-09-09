@@ -1,6 +1,5 @@
 "use client";
 import Logo from "@/_components/shared/logo/Logo";
-import { useAuth } from "@/hooks/useAuth";
 import { ReactNode, useState } from "react";
 import { FiMenu } from "react-icons/fi";
 import { RxCross2 } from "react-icons/rx";
@@ -8,14 +7,13 @@ import DashboardSidebar from "./_components/DashboardSidebar";
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const { user } = useAuth();
 
   const toggleSidebar = () => setIsSidebarOpen((prev) => !prev);
 
   return (
     <div className="flex md:flex-row flex-col min-h-screen bg-contrast">
       {/* Sidebar */}
-      <DashboardSidebar isSidebarOpen={isSidebarOpen} role={user?.role} />
+      <DashboardSidebar isSidebarOpen={isSidebarOpen} />
 
       {/* Mobile overlay */}
       {isSidebarOpen && (

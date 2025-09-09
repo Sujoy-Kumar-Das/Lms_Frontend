@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import { useEnrollMutation } from "@/lib/redux/api/course/course.api";
+import { useEnrollMutation } from "@/lib/redux/api/enroll/enroll.api";
 import { ReactNode } from "react";
 import { FaSpinner } from "react-icons/fa";
 import { toast } from "react-toastify";

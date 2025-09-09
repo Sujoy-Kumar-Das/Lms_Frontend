@@ -8,9 +8,9 @@ import { MdDashboard, MdManageAccounts, MdSecurity } from "react-icons/md";
 const dashboardRoutes: IDashboardRoute[] = [
   {
     text: "Dashboard",
-    link: "/dashboard/user",
+    link: "/dashboard/",
     icon: <MdDashboard />,
-    access: [USER_ROLE.student],
+    access: [USER_ROLE.student, USER_ROLE.admin],
   },
   {
     text: "Course",
@@ -32,19 +32,19 @@ const dashboardRoutes: IDashboardRoute[] = [
   },
   {
     text: "Users",
-    link: "/dashboard/admin/users",
+    link: "/dashboard/admin/students",
     icon: <FaUsers />,
     access: [USER_ROLE.admin],
   },
   {
     text: "My Courses",
-    link: "/dashboard/user/courses",
+    link: "/dashboard/student/courses",
     icon: <AiFillHeart />,
     access: [USER_ROLE.student],
   },
   {
     text: "My Class",
-    link: "/dashboard/user/class",
+    link: "/dashboard/student/class",
     icon: <FaChalkboardTeacher />,
     access: [USER_ROLE.student],
   },

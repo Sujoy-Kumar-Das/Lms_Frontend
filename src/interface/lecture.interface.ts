@@ -11,4 +11,6 @@ export interface ILectureData {
   _id: string;
   title: string;
   module: IModuleData;
+  video: string;
+  notes: string[];
 }

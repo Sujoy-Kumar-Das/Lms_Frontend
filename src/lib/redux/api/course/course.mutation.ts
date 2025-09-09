@@ -1,10 +1,5 @@
 import { FieldValues } from "react-hook-form";
 
-const enroll = (id: string) => ({
-  url: `/course/${id}/enroll`,
-  method: "POST",
-});
-
 const create = (data: FieldValues) => ({
   url: `/course/`,
   method: "POST",
@@ -23,7 +18,6 @@ const deleteCourse = (id: string) => ({
 });
 
 export const courseMutation = {
-  enroll,
   create,
   deleteCourse,
   editCourse,

@@ -26,7 +26,7 @@ export default function CourseLeftSection({
       <CourseTopics />
 
       {/* Course Content Section */}
-      <CourseContent />
+      <CourseContent modules={courseDetails?.modules} />
 
       {/* dummy course instructor information section  */}
       <CourseInstructorInformation

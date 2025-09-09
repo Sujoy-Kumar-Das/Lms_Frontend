@@ -1,6 +1,12 @@
-import { FaChevronDown } from "react-icons/fa";
+import ModuleList from "@/_components/shared/module_compo/ModuleList";
+import { IModuleDetails } from "@/interface/module.interface";
 
-export default function CourseContent() {
+export default function CourseContent({
+  modules,
+}: {
+  modules: IModuleDetails[];
+}) {
+  console.log({ modules });
   return (
     <div className="mt-8 bg-background rounded-xl shadow-sm p-6">
       {/* Section Title */}
@@ -19,50 +25,7 @@ export default function CourseContent() {
       </div>
 
       {/* Course Modules */}
-      <div className="space-y-3">
-        {/* Single Module */}
-        <div className="border rounded-lg overflow-hidden">
-          <div className="bg-gray-50 p-4 flex justify-between items-center">
-            <div>
-              <h3 className="font-medium text-text-primary">
-                Introduction to Front-End Development
-              </h3>
-              <p className="text-sm text-text-secondary">
-                5 lectures • 2hr 10min
-              </p>
-            </div>
-            <FaChevronDown className="w-5 h-5 text-primary" />
-          </div>
-        </div>
-
-        <div className="border rounded-lg overflow-hidden">
-          <div className="bg-gray-50 p-4 flex justify-between items-center">
-            <div>
-              <h3 className="font-medium text-text-primary">
-                HTML5 Fundamentals
-              </h3>
-              <p className="text-sm text-text-secondary">
-                8 lectures • 3hr 45min
-              </p>
-            </div>
-            <FaChevronDown className="w-5 h-5 text-secondary" />
-          </div>
-        </div>
-
-        <div className="border rounded-lg overflow-hidden">
-          <div className="bg-gray-50 p-4 flex justify-between items-center">
-            <div>
-              <h3 className="font-medium text-text-primary">
-                CSS3 and Modern Layouts
-              </h3>
-              <p className="text-sm text-text-secondary">
-                10 lectures • 5hr 20min
-              </p>
-            </div>
-            <FaChevronDown className="w-5 h-5 text-secondary" />
-          </div>
-        </div>
-      </div>
+      <ModuleList modules={modules} />
     </div>
   );
 }
